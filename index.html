@@ -16,20 +16,26 @@
     <link rel="icon" type="image/x-icon" href="src/favicon16x16.ico">
     <link rel="dns-prefetch" href="//storage.googleapis.com" />
    
-    <style>
-        .loader-container {
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading Screen</title>
+  <style>
+    .loader-container {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.7);
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 9999; 
+      z-index: 9999;
     }
-    
+
     .loader {
       width: 100px;
       height: 100px; 
@@ -40,41 +46,42 @@
       filter: blur(5px) contrast(10) hue-rotate(180deg);
       mix-blend-mode: darken;
     }
-    
-        .loader:before,
-        .loader:after {
-          content: "";
-          grid-area: 1/1;
-          margin: 30px 0;
-          border-radius: 100px;
-          background: #ff00ff;
-          animation: l4 2s infinite linear;
-        }
-    
-        .loader:after {
-          --s:-1;
-        }
-    
-        @keyframes l4 {
-          100% {
-            transform: rotate(calc(var(--s, 1) * 1turn));   
-    
-          }
-        }
-      </style>
-    </head>
-    <body>
-      <div class="loader-container">
-        <div class="loader"></div>
-      </div>
-    
-      <script>
-        // Remove the loader after 3 seconds (adjust as needed)
-        setTimeout(() => {
-          const loaderContainer = document.querySelector('.loader-container');
-          loaderContainer.style.display = 'none';
-        }, 3000);
-      </script>
+
+    .loader:before,
+    .loader:after {
+      content: "";
+      grid-area: 1/1;
+      margin: 30px 0;
+      border-radius: 100px;
+      background: #ff00ff;
+      animation: l4 2s infinite linear;
+    }
+
+    .loader:after {
+      --s:-1;
+    }
+
+    @keyframes l4 {
+      100% {
+        transform: rotate(calc(var(--s, 1) * 1turn));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader-container">
+    <div class="loader"></div>
+  </div>
+
+  <script>
+    // Remove the loader after 3 seconds (adjust as needed)
+    setTimeout(() => {
+      const loaderContainer = document.querySelector('.loader-container');
+      loaderContainer.style.display = 'none';
+    }, 3000);
+  </script>
+</body>
+</html>
    
     <link
       rel="stylesheet"
@@ -1206,152 +1213,23 @@
               </h2>
             </div>
 
-            <h3
-              class="text_ea9653c86313 has-text-color has-background has-text-align-left wp-block-heading"
-              id="62814220-07e8-475c-a86b-ea9653c86313"
-              style="
-                text-transform: none;
-                font-style: normal;
-                font-size: 23.5px;
-                font-weight: 400;
-                letter-spacing: -0.5px;
-                color: #ffffff;
-                background-color: transparent;
-              "
-            >
-              <span
-                class="text-c695cfbb5448_ea9653c86313 has-text-color has-background"
-                style="
-                  text-transform: none;
-                  font-style: normal;
-                  font-size: 23.5px;
-                  font-weight: 400;
-                  letter-spacing: -0.5px;
-                  color: #ffffff;
-                  background-color: transparent;
-                "
-                >The hackathon is open to both individual registrants and teams
-                with a minimum of four and a maximum of five members.<br />If an
-                individual has registered without a team, they will be asked to
-                form one with other individual registrants during the </span
-              ><span
-                class="text-5a6d86beb049_ea9653c86313 has-text-color has-background"
-                style="
-                  text-transform: none;
-                  font-style: normal;
-                  font-size: 23.5px;
-                  font-weight: 400;
-                  letter-spacing: 0px;
-                  color: #ffffff;
-                  background-color: transparent;
-                "
-                >D</span
-              ><span
-                class="text-dfd666ed38b9_ea9653c86313 has-text-color has-background"
-                style="
-                  text-transform: none;
-                  font-style: normal;
-                  font-size: 23.5px;
-                  font-weight: 400;
-                  letter-spacing: -0.5px;
-                  color: #ffffff;
-                  background-color: transparent;
-                "
-                >ay 1 networking session.<br />The team must carry the </span
-              ><span
-                class="text-3875ab4856ec_ea9653c86313 has-text-color has-background"
-                style="
-                  text-transform: none;
-                  font-style: normal;
-                  font-size: 24px;
-                  font-weight: 800;
-                  letter-spacing: -0.5px;
-                  color: #ffffff;
-                  background-color: transparent;
-                "
-                >basic programmable boards</span
-              ><span
-                class="text-1c32647cd868_ea9653c86313 has-text-color has-background"
-                style="
-                  text-transform: none;
-                  font-style: normal;
-                  font-size: 23.5px;
-                  font-weight: 400;
-                  letter-spacing: -0.5px;
-                  color: #ffffff;
-                  background-color: transparent;
-                "
-                >, and components for the competition will be provided
-                (returnable after the event).<br />Each team is required to have
-                at least one laptop.<br />After the payment,</span
-              ><span
-                class="text-a06f86ac0fc6_ea9653c86313 has-text-color has-background"
-                style="
-                  text-transform: none;
-                  font-style: normal;
-                  font-size: 24px;
-                  font-weight: 800;
-                  letter-spacing: -0.5px;
-                  color: #ffffff;
-                  background-color: transparent;
-                "
-              >
-                no refunds</span
-              ><span
-                class="text-c2a5a7ecdbc5_ea9653c86313 has-text-color has-background"
-                style="
-                  text-transform: none;
-                  font-style: normal;
-                  font-size: 23.5px;
-                  font-weight: 400;
-                  letter-spacing: -0.5px;
-                  color: #ffffff;
-                  background-color: transparent;
-                "
-              >
-                will be processed.<br />Participants should bring their college
-                ID card/Government-Approved ID Card to enter the premises.<br /></span
-              ><span
-                class="text-db8dc965d5ef_ea9653c86313 has-text-color has-background"
-                style="
-                  text-transform: none;
-                  font-style: normal;
-                  font-size: 24px;
-                  font-weight: 800;
-                  letter-spacing: -0.5px;
-                  color: #ffffff;
-                  background-color: transparent;
-                "
-                >A soft copy of the IEEE membership card</span
-              ><span
-                class="text-94d23bcb06dd_ea9653c86313 has-text-color has-background"
-                style="
-                  text-transform: none;
-                  font-style: normal;
-                  font-size: 23.5px;
-                  font-weight: 400;
-                  letter-spacing: -0.5px;
-                  color: #ffffff;
-                  background-color: transparent;
-                "
-              >
-                has to be shown at the registration desk. Non-IEEE members
-                registered as IEEE members and Non-PES/PHO members registered as
-                PES/PHO members will be imposed with a fine of Rs. 400.<br />Students
-                registered as IEEE PES/PHO Members, should provide their PES/PHO
-                Membership subscription while registering and should keep a soft
-                copy to be shown at the registration desk.<br />Your vehicle is
-                not allowed inside the campus as well and no safeguarding of
-                your vehicle will be provided by the authorities.<br />A
-                cloakroom will be provided inside the venue. However, the
-                organisers won&apos;t be held responsible for any lost wallets,
-                ornaments, etc.<br />Students shouldn’t leave the college
-                premises without providing valid consent to the event
-                coordinators.<br />Beds will be provided. You are requested to
-                bring a bed sheet and the necessary commodities if
-                required.</span
-              >
-            </h3>
+            <h3 class="text_ea9653c86313 has-text-color has-background has-text-align-left wp-block-heading" id="62814220-07e8-475c-a86b-ea9653c86313" style="text-transform: none; font-style: normal; font-size: 23.5px; font-weight: 400; letter-spacing: -0.5px; color: #ffffff; background-color: transparent;">
+                <ol>
+                  <li>The hackathon is open to both individual registrants and teams with a minimum of four and a maximum of five members.</li>
+                  <li>If an individual has registered without a team, they will be asked to form one with other individual registrants during the Day 1 networking session.</li>
+                  <li>The team must carry the basic programmable boards, and components for the competition will be provided (returnable after the event).</li>
+                  <li>Each team is required to have at least one laptop.</li>
+                  <li>After the payment, no refunds will be processed.</li>
+                  <li>Participants should bring their college ID card/Government-Approved ID Card to enter the premises.</li>
+                  <li>A soft copy of the IEEE membership card has to be shown at the registration desk. Non-IEEE members registered as IEEE members and Non-PES/PHO members registered as PES/PHO members will be imposed with a fine of Rs. 400.</li>
+                  <li>Students registered as IEEE PES/PHO Members, should provide their PES/PHO Membership subscription while registering and should keep a soft copy to be shown at the registration desk.</li>
+                  <li>Your vehicle is not allowed inside the campus as well and no safeguarding of your vehicle will be provided by the authorities.</li>
+                  <li>A cloakroom will be provided inside the venue. However, the organisers won't be held responsible for any lost wallets, ornaments, etc.</li>
+                  <li>Students shouldn’t leave the college premises without providing valid consent to the event coordinators.</li>
+                  <li>Beds will be provided. You are requested to bring a bed sheet and the necessary commodities if required.</li>
+                </ol>
+              </h3>
+              
           </div>
 
           <div
@@ -2256,129 +2134,128 @@
                 tickets
               </p>
             </div>
-
             <p
-              class="text_48f105749be6 has-text-color has-background has-text-align-left"
+            class="text_48f105749be6 has-text-color has-background has-text-align-left"
+            style="
+              text-transform: none;
+              font-style: normal;
+              font-size: 11.5px;
+              font-weight: 400;
+              letter-spacing: -0.5px;
+              color: #ffffff;
+              background-color: transparent;
+            "
+          >
+            <span
+              class="text-97b843c296be_48f105749be6 has-text-color has-background"
               style="
                 text-transform: none;
                 font-style: normal;
-                font-size: 11.5px;
+                font-size: 12px;
+                font-weight: 400;
+                letter-spacing: -0.5px;
+                color: #ffffff;
+                background-color: transparent;
+              "
+              >1.The hackathon is open to both individual registrants and teams
+              with a minimum of four and a maximum of five members.<br />2.If an
+              individual has registered without a team, they will be asked to
+              form one with other individual registrants during the Day 1
+              networking session.<br />3.The team must carry the </span
+            ><span
+              class="text-f382933eabd1_48f105749be6 has-text-color has-background"
+              style="
+                text-transform: none;
+                font-style: normal;
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: -0.5px;
+                color: #ffffff;
+                background-color: transparent;
+              "
+              >basic programmable boards</span
+            ><span
+              class="text-1a627ef56ec5_48f105749be6 has-text-color has-background"
+              style="
+                text-transform: none;
+                font-style: normal;
+                font-size: 12px;
+                font-weight: 400;
+                letter-spacing: -0.5px;
+                color: #ffffff;
+                background-color: transparent;
+              "
+              >, and components for the competition will be provided
+              (returnable after the event).<br />4.Each team is required to have
+              at least one laptop.<br />5.After the payment,</span
+            ><span
+              class="text-359e0c794d20_48f105749be6 has-text-color has-background"
+              style="
+                text-transform: none;
+                font-style: normal;
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: -0.5px;
+                color: #ffffff;
+                background-color: transparent;
+              "
+            >
+              no refunds</span
+            ><span
+              class="text-0302c652f69b_48f105749be6 has-text-color has-background"
+              style="
+                text-transform: none;
+                font-style: normal;
+                font-size: 12px;
                 font-weight: 400;
                 letter-spacing: -0.5px;
                 color: #ffffff;
                 background-color: transparent;
               "
             >
-              <span
-                class="text-97b843c296be_48f105749be6 has-text-color has-background"
-                style="
-                  text-transform: none;
-                  font-style: normal;
-                  font-size: 12px;
-                  font-weight: 400;
-                  letter-spacing: -0.5px;
-                  color: #ffffff;
-                  background-color: transparent;
-                "
-                >The hackathon is open to both individual registrants and teams
-                with a minimum of four and a maximum of five members.<br />If an
-                individual has registered without a team, they will be asked to
-                form one with other individual registrants during the Day 1
-                networking session.<br />The team must carry the </span
-              ><span
-                class="text-f382933eabd1_48f105749be6 has-text-color has-background"
-                style="
-                  text-transform: none;
-                  font-style: normal;
-                  font-size: 12px;
-                  font-weight: 800;
-                  letter-spacing: -0.5px;
-                  color: #ffffff;
-                  background-color: transparent;
-                "
-                >basic programmable boards</span
-              ><span
-                class="text-1a627ef56ec5_48f105749be6 has-text-color has-background"
-                style="
-                  text-transform: none;
-                  font-style: normal;
-                  font-size: 12px;
-                  font-weight: 400;
-                  letter-spacing: -0.5px;
-                  color: #ffffff;
-                  background-color: transparent;
-                "
-                >, and components for the competition will be provided
-                (returnable after the event).<br />Each team is required to have
-                at least one laptop.<br />After the payment,</span
-              ><span
-                class="text-359e0c794d20_48f105749be6 has-text-color has-background"
-                style="
-                  text-transform: none;
-                  font-style: normal;
-                  font-size: 12px;
-                  font-weight: 800;
-                  letter-spacing: -0.5px;
-                  color: #ffffff;
-                  background-color: transparent;
-                "
-              >
-                no refunds</span
-              ><span
-                class="text-0302c652f69b_48f105749be6 has-text-color has-background"
-                style="
-                  text-transform: none;
-                  font-style: normal;
-                  font-size: 12px;
-                  font-weight: 400;
-                  letter-spacing: -0.5px;
-                  color: #ffffff;
-                  background-color: transparent;
-                "
-              >
-                will be processed.<br />Participants should bring their college
-                ID card/Government-Approved ID Card to enter the premises.<br /></span
-              ><span
-                class="text-afaa1b0bb5ee_48f105749be6 has-text-color has-background"
-                style="
-                  text-transform: none;
-                  font-style: normal;
-                  font-size: 12px;
-                  font-weight: 800;
-                  letter-spacing: -0.5px;
-                  color: #ffffff;
-                  background-color: transparent;
-                "
-                >A soft copy of the IEEE membership card</span
-              ><span
-                class="text-b112915c9d3a_48f105749be6 has-text-color has-background"
-                style="
-                  text-transform: none;
-                  font-style: normal;
-                  font-size: 12px;
-                  font-weight: 400;
-                  letter-spacing: -0.5px;
-                  color: #ffffff;
-                  background-color: transparent;
-                "
-              >
-                has to be shown at the registration desk. Non-IEEE members
-                registered as IEEE members and Non-PES/PHO members registered as
-                PES/PHO members will be imposed with a fine of Rs. 400.<br />Students
-                registered as IEEE PES/PHO Members, should provide their PES/PHO
-                Membership subscription while registering and should keep a soft
-                copy to be shown at the registration desk.<br />Your vehicle is
-                not allowed inside the campus as well and no safeguarding of
-                your vehicle will be provided by the authorities.<br />A
-                cloakroom will be provided inside the venue. However, the
-                organisers won&apos;t be held responsible for any lost wallets,
-                ornaments, etc.<br />Students shouldn’t leave the college
-                premises without providing valid consent to the event
-                coordinators.<br />Beds will be provided. You are requested to
-                bring a bed sheet and the necessary commodities if
-                required.</span
-              >
-            </p>
+              will be processed.<br />6.Participants should bring their college
+              ID card/Government-Approved ID Card to enter the premises.<br /></span
+            ><span
+              class="text-afaa1b0bb5ee_48f105749be6 has-text-color has-background"
+              style="
+                text-transform: none;
+                font-style: normal;
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: -0.5px;
+                color: #ffffff;
+                background-color: transparent;
+              "
+              >7.A soft copy of the IEEE membership card</span
+            ><span
+              class="text-b112915c9d3a_48f105749be6 has-text-color has-background"
+              style="
+                text-transform: none;
+                font-style: normal;
+                font-size: 12px;
+                font-weight: 400;
+                letter-spacing: -0.5px;
+                color: #ffffff;
+                background-color: transparent;
+              "
+            >
+              has to be shown at the registration desk. Non-IEEE members
+              registered as IEEE members and Non-PES/PHO members registered as
+              PES/PHO members will be imposed with a fine of Rs. 400.<br />8.Students
+              registered as IEEE PES/PHO Members, should provide their PES/PHO
+              Membership subscription while registering and should keep a soft
+              copy to be shown at the registration desk.<br />9.Your vehicle is
+              not allowed inside the campus as well and no safeguarding of
+              your vehicle will be provided by the authorities.<br />10.A
+              cloakroom will be provided inside the venue. However, the
+              organisers won&apos;t be held responsible for any lost wallets,
+              ornaments, etc.<br />11.Students shouldn’t leave the college
+              premises without providing valid consent to the event
+              coordinators.<br />12.Beds will be provided. You are requested to
+              bring a bed sheet and the necessary commodities if
+              required.</span
+            >
+          </p>
           </div>
 
           <div
