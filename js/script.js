@@ -43,5 +43,5 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Reduce the delay to a lower value (e.g., 10 milliseconds)
-  setTimeout(applyZoom, 10);
+  setTimeout(applyZoom, 1);
 });
