@@ -1,4 +1,4 @@
-const themeSlug = "ieee-sb-cek"; // Commented out (optional)
+const themeSlug = "ieee-sb-cek"; // Optional theme slug
 
 function clearForm(formId) {
   document.getElementById(formId).reset();
@@ -6,42 +6,32 @@ function clearForm(formId) {
 
 window.addEventListener("message", (event) => {
   if (event?.data?.zoom) {
-    const mains = document.getElementsByTagName('main');
-    for (let main of mains) {
+    const mains = document.querySelectorAll('main');
+    for (const main of mains) {
       main.style.zoom = event?.data?.zoom;
     }
   }
 }, false);
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementsByTagName('body')[0].style.overflowX = "hidden";
+  document.body.style.overflowX = "hidden"; // Set overflowX on body
 
   function applyZoom() {
-    const vpTags = document.getElementsByClassName('yotako-main');
-    let closest;
-    let parentElement;
+    const vpTags = document.querySelectorAll('.yotako-main');
 
-    for (let vp of vpTags) {
+    for (const vp of vpTags) {
       if (vp.offsetParent) {
-        vp.classList.forEach(c => {
-          if (c.includes('size_')) {
-            parentElement = vp.parentElement;
-            closest = c.split('_')[1];
-          }
-        });
+        const zoomClass = vp.classList.value.match(/size_(\d+)/)?.[1]; // Extract size from class
+        if (zoomClass) {
+          const closest = parseFloat(zoomClass); // Ensure numerical conversion
+          const parentElement = vp.parentElement;
+          parentElement.style.zoom = window.innerWidth / closest;
+        }
       }
-    }
-
-    const zoom = window.innerWidth / closest;
-    if (parentElement) {
-      parentElement.style.zoom = isNaN(zoom) ? 1 : zoom;
     }
   }
 
-  window.onresize = function () {
-    applyZoom();
-  };
+  window.onresize = applyZoom;
 
-  // Reduce the delay to a lower value (e.g., 10 milliseconds)
-  setTimeout(applyZoom, 10);
+  applyZoom(); // Call applyZoom immediately for initial responsiveness
 });
