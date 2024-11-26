@@ -1,42 +1,47 @@
+const themeSlug = "ieee-sb-cek"; // Commented out (optional)
+
+function clearForm(formId) {
+  document.getElementById(formId).reset();
+}
+
+window.addEventListener("message", (event) => {
+  if (event?.data?.zoom) {
+    const mains = document.getElementsByTagName('main');
+    for (let main of mains) {
+      main.style.zoom = event?.data?.zoom;
+    }
+  }
+}, false);
+
 document.addEventListener('DOMContentLoaded', () => {
-  // Prevent horizontal scrolling
-  document.body.style.overflowX = "hidden";
+  document.getElementsByTagName('body')[0].style.overflowX = "hidden";
 
   function applyZoom() {
     const vpTags = document.getElementsByClassName('yotako-main');
-    let closestSize = Infinity;
+    let closest;
+    let parentElement;
 
-    // Find the smallest valid size class (size_XXX) dynamically
     for (let vp of vpTags) {
-      if (vp.offsetParent) { // Ensure the element is visible
-        vp.classList.forEach(className => {
-          if (className.startsWith('size_')) {
-            const size = parseInt(className.split('_')[1], 10);
-            if (!isNaN(size)) {
-              closestSize = Math.min(closestSize, size);
-            }
+      if (vp.offsetParent) {
+        vp.classList.forEach(c => {
+          if (c.includes('size_')) {
+            parentElement = vp.parentElement;
+            closest = c.split('_')[1];
           }
         });
       }
     }
 
-    // Calculate zoom ratio only if a valid size is found
-    if (closestSize !== Infinity) {
-      const zoom = window.innerWidth / closestSize;
-
-      // Apply zoom, limiting it to a maximum of 1 (no zoom-out)
-      for (let vp of vpTags) {
-        if (vp.offsetParent) {
-          vp.parentElement.style.transformOrigin = "0 0"; // Keep consistent scaling
-          vp.parentElement.style.transform = `scale(${Math.min(1, zoom)})`;
-        }
-      }
+    const zoom = window.innerWidth / closest;
+    if (parentElement) {
+      parentElement.style.zoom = isNaN(zoom) ? 1 : zoom;
     }
   }
 
-  // Update zoom dynamically on window resize
-  window.addEventListener('resize', applyZoom);
+  window.onresize = function () {
+    applyZoom();
+  };
 
-  // Apply zoom on initial load
-  applyZoom();
+  // Reduce the delay to a lower value (e.g., 10 milliseconds)
+  setTimeout(applyZoom, 10);
 });
