@@ -14,24 +14,28 @@ window.addEventListener("message", (event) => {
 }, false);
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.body.style.overflowX = "hidden"; // Set overflowX on body
+  // Wait for images and other resources to load before applying zoom
+  window.addEventListener('load', () => {
+    document.body.style.overflowX = "hidden"; // Set overflowX on body
 
-  function applyZoom() {
-    const vpTags = document.querySelectorAll('.yotako-main');
+    function applyZoom() {
+      const vpTags = document.querySelectorAll('.yotako-main');
 
-    for (const vp of vpTags) {
-      if (vp.offsetParent) {
-        const zoomClass = vp.classList.value.match(/size_(\d+)/)?.[1]; // Extract size from class
-        if (zoomClass) {
-          const closest = parseFloat(zoomClass); // Ensure numerical conversion
-          const parentElement = vp.parentElement;
-          parentElement.style.zoom = window.innerWidth / closest;
+      for (const vp of vpTags) {
+        if (vp.offsetParent) {
+          const zoomClass = vp.classList.value.match(/size_(\d+)/)?.[1];
+          if (zoomClass) {
+            const closest = parseFloat(zoomClass);
+            vp.parentElement.style.setProperty('zoom', window.innerWidth / closest, 'important');
+            vp.parentElement.style.margin = '0';  // Reset margins
+            vp.parentElement.style.padding = '0';  // Reset padding
+          }
         }
       }
     }
-  }
 
-  window.onresize = applyZoom;
+    window.onresize = applyZoom;
 
-  applyZoom(); // Call applyZoom immediately for initial responsiveness
+    applyZoom(); // Call applyZoom after resources are loaded
+  });
 });
